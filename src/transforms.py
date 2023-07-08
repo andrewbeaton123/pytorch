@@ -29,3 +29,15 @@ def general_transform(mean_val, std_val) -> transforms.Compose :
         ]
 
     )
+def mushroom_transformer() -> transforms.Compose :
+    """holds the transformer to handle the mushroom data
+
+
+    Returns:
+        transforms.Compose: Resized and scalled tensor transformer
+    """
+    return  transforms.Compose([
+    transforms.Resize((224, 224)),  # Resize the image to a specific size
+    transforms.ToTensor(),  # Converts the image to a tensor
+    transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))  # Normalize the image
+])
