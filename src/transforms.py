@@ -18,3 +18,14 @@ def compose_for_cifar_ten() -> transforms.Compose:
           std = [0.229, 0.224, 0.225]
          )]
      )
+
+def general_transform(mean_val, std_val) -> transforms.Compose : 
+    """ general transformer that takes in mean 
+    and std values as lists of f"""
+    return transforms.Compose(
+        [
+            transforms.ToTensor(),
+            transforms.Normalize(mean_val, std_val)
+        ]
+
+    )
