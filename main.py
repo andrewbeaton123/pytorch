@@ -5,7 +5,8 @@ from src.loader.custom_dataset import CustomDataset
 from src.transforms import compose_for_cifar_ten,general_transform,mushroom_transformer
 from src.load_cifar_ten import load_train_test_cifar_ten
 
-logging.basicConfig(level="DEBUG")
+logging.basicConfig(level="INFO")
+
 
 
 def main_cifar():
@@ -19,11 +20,14 @@ def main_cifar():
     print(test_cfar)
     
 def main():
-    logging.info("Starting main function")
-    #main_cifar()
-    mush  = CustomDataset(r"C:\Users\andrewb\Documents\DSets\data\mushrooms\\",mushroom_transformer())
-    print(mush.__len__())
 
+    logging.info("Starting main function")
+    
+
+    mush_data  = CustomDataset(r"C:\Users\andrewb\Documents\DSets\data\mushrooms\\",mushroom_transformer())
+    print(mush_data.__len__())
+    
+    print(f"Label types are : {mush_data.labels}")
     logging.info("Finished main")
 if __name__ == '__main__':
     main()
