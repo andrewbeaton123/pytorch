@@ -19,6 +19,16 @@ def compose_for_cifar_ten() -> transforms.Compose:
          )]
      )
 
+def general_transform(mean_val, std_val) -> transforms.Compose : 
+    """ general transformer that takes in mean 
+    and std values as lists of f"""
+    return transforms.Compose(
+        [
+            transforms.ToTensor(),
+            transforms.Normalize(mean_val, std_val)
+        ]
+
+    )
 def mushroom_transformer() -> transforms.Compose :
     """holds the transformer to handle the mushroom data
 
